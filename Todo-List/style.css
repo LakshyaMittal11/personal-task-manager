@@ -1,5 +1,420 @@
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f3f5ff;
+    color: #172044;
+    min-height: 100vh;
+    padding: 40px 20px;
+    transition: 0.3s;
+}
+
+.container {
+    max-width: 1100px;
+    margin: auto;
+    background: white;
+    border-radius: 25px;
+    overflow: hidden;
+    box-shadow: 0 15px 40px rgba(40, 70, 150, 0.15);
+}
+
+/* Header */
+
+.header {
+    background: linear-gradient(120deg, #1685f9, #7134ed);
+    color: white;
+    padding: 35px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.logo-icon {
+    background: white;
+    color: #1479ed;
+    width: 65px;
+    height: 65px;
+    border-radius: 15px;
+    display: grid;
+    place-items: center;
+    font-size: 45px;
+    font-weight: bold;
+}
+
+.header h1 {
+    font-size: 32px;
+}
+
+.header p {
+    margin-top: 8px;
+    opacity: 0.85;
+}
+
+.theme-btn {
+    border: none;
+    border-radius: 30px;
+    padding: 12px 18px;
+    font-size: 22px;
+    cursor: pointer;
+}
+
+/* Main Content */
+
+.content {
+    padding: 35px;
+}
+
+/* Add Task */
+
+.add-task {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.add-task input {
+    flex: 1;
+}
+
+input, select {
+    padding: 16px;
+    border: 2px solid #e0e4f0;
+    border-radius: 12px;
+    outline: none;
+    font-size: 16px;
+    min-width: 0;
+}
+
+input:focus, select:focus {
+    border-color: #287df5;
+}
+
+.add-task button {
+    background: #0865ed;
+    color: white;
+    border: none;
+    padding: 16px 25px;
+    border-radius: 12px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button {
+    transition: 0.2s;
+}
+
+button:hover {
+    opacity: 0.85;
+    transform: translateY(-1px);
+}
+
+/* Toolbar */
+
+.toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.filters {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.filter {
+    padding: 13px 20px;
+    border: none;
+    border-radius: 12px;
+    background: #eff0f7;
+    color: #172044;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.filter.active {
+    background: #1675f5;
+    color: white;
+}
+
+#searchInput {
+    width: 230px;
+}
+
+/* Task Cards */
+
+.task-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.task-card {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 16px;
+    border: 2px solid #e5e8f2;
+    border-radius: 15px;
+    transition: 0.2s;
+}
+
+.task-card:hover {
+    background: #f7f9ff;
+}
+
+.task-card.completed {
+    background: #edf4ff;
+}
+
+.task-checkbox {
+    width: 23px;
+    height: 23px;
+    accent-color: #1475ed;
+    cursor: pointer;
+}
+
+.task-name {
+    flex: 1;
+    font-size: 18px;
+    overflow-wrap: anywhere;
+}
+
+.completed .task-name {
+    text-decoration: line-through;
+    color: #7c849d;
+}
+
+.priority {
+    padding: 8px 13px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.priority.High {
+    background: #ffe0e5;
+    color: #e32648;
+}
+
+.priority.Medium {
+    background: #fff0d3;
+    color: #b66b00;
+}
+
+.priority.Low {
+    background: #dcf8e9;
+    color: #13874c;
+}
+
+.actions {
+    display: flex;
+    gap: 8px;
+}
+
+.actions button {
+    border: none;
+    border-radius: 9px;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.edit-btn {
+    background: #e8eafa;
+}
+
+.delete-btn {
+    background: #ffe0e7;
+}
+
+/* Empty Message */
+
+.empty-message {
+    text-align: center;
+    padding: 35px;
+    color: #8991a8;
+}
+
+/* Footer */
+
+.footer {
+    border-top: 2px solid #e8eaf2;
+    margin-top: 25px;
+    padding-top: 22px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.progress-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    white-space: nowrap;
+}
+
+.progress-info span {
+    background: #20b981;
+    color: white;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: grid;
+    place-items: center;
+    font-size: 22px;
+}
+
+.progress-bar {
+    flex: 1;
+    height: 12px;
+    background: #eceef5;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+#progressFill {
+    width: 0%;
+    height: 100%;
+    background: #20bd85;
+    transition: width 0.3s;
+}
+
+.clear-btn {
+    background: white;
+    border: 2px solid #d9ddeb;
+    padding: 12px 16px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+/* Dark Mode */
+
+body.dark {
+    background: #111827;
+    color: #f3f4f6;
+}
+
+.dark .container {
+    background: #1f2937;
+}
+
+.dark .content {
+    color: #f3f4f6;
+}
+
+.dark input,
+.dark select,
+.dark .filter,
+.dark .clear-btn {
+    background: #374151;
+    color: white;
+    border-color: #4b5563;
+}
+
+.dark .task-card {
+    background: #273449;
+    border-color: #46546a;
+}
+
+.dark .task-card.completed {
+    background: #263c50;
+}
+
+.dark .task-name {
+    color: white;
+}
+
+.dark .completed .task-name {
+    color: #aab4c4;
+}
+
+.dark .filter.active {
+    background: #1675f5;
+}
+
+.dark .footer {
+    border-color: #46546a;
+}
+
+/* Responsive */
+
+@media (max-width: 700px) {
+    body {
+        padding: 15px;
+    }
+
+    .header {
+        padding: 25px 20px;
+    }
+
+    .header h1 {
+        font-size: 22px;
+    }
+
+    .logo-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 32px;
+    }
+
+    .content {
+        padding: 20px;
+    }
+
+    .add-task {
+        flex-wrap: wrap;
+    }
+
+    .add-task input {
+        width: 100%;
+        flex-basis: 100%;
+    }
+
+    .add-task select {
+        flex: 1;
+    }
+
+    .toolbar {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    #searchInput {
+        width: 100%;
+    }
+
+    .task-card {
+        flex-wrap: wrap;
+    }
+
+    .task-name {
+        min-width: 60%;
+    }
+
+    .footer {
+        flex-wrap: wrap;
+    }
+
+    .progress-bar {
+        min-width: 100%;
+        order: 2;
+    }
+
+    .clear-btn {
+        margin-left: auto;
+    }
 }
